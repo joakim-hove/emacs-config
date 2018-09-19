@@ -34,7 +34,7 @@ def link_spacemacs():
             os.unlink(dot_spacemacs)
 
         link = dot_spacemacs
-        target = os.path.join(cwd, "spacemacs")
+        target = os.path.join(cwd, "spacemacs.el")
         print("Linking {link} -> {target}".format(link=link, target=target))
         os.symlink(target, dot_spacemacs)
 

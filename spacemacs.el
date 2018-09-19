@@ -2,9 +2,9 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
-(setq dotspaceemacs-elpa-timeout 300)
-
-
+(setq user-lisp-directory (concat (or (getenv "EMACS_HOME") "~/emacs-config") "/user/"))
+(defun load-user-lisp (fname)
+  (load-file (concat user-lisp-directory fname)))
 
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
@@ -313,6 +313,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   )
 
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -320,7 +321,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  )
+  ;;(let ((user-init-file (concat (file-name-directory load-file-name) "user/init.el")))
+  ;;  (message (format "user-init-file: %s" user-init-file))))
+  (load-user-lisp "init.el"))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
