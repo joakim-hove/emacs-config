@@ -51,9 +51,12 @@ values."
      better-defaults
      emacs-lisp
      git
+     django
+     github
      markdown
      c-c++
      org
+     cscope
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
