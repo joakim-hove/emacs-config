@@ -1,8 +1,5 @@
-
-
 (load-user-lisp "rst.el")
 (load-user-lisp "util.el")
 (load-user-lisp "settings.el")
 (load-user-lisp "org.el")
-
-
+(load-user-lisp "c++.el")
