@@ -3,3 +3,4 @@
 (load-user-lisp "settings.el")
 (load-user-lisp "org.el")
 (load-user-lisp "c++.el")
+(load-user-lisp "rtags.el")
