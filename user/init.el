@@ -4,3 +4,4 @@
 (load-user-lisp "my-org.el")
 (load-user-lisp "c++.el")
 (load-user-lisp "rtags.el")
+(load-user-lisp "my-helm.el")
