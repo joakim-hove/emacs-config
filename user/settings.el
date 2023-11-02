@@ -5,3 +5,4 @@
 
 ;; (load-file "~/work/elisp/helm-make/helm-make.el")
 ;; (setq helm-make-nproc 0)
+(setq image-types (cons 'svg image-types))

@@ -5,3 +5,5 @@
 (load-user-lisp "c++.el")
 (load-user-lisp "rtags.el")
 (load-user-lisp "my-helm.el")
+(load-user-lisp "magit.el")
+(load-user-lisp "python.el")
