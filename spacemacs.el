@@ -57,7 +57,8 @@ This function should only modify configuration layer settings."
      git
      helm
      projectile
-     (lsp :variables lsp-use-lsp-ui 't)
+     (lsp :variables lsp-use-lsp-ui 't
+                     lsp-enable-file-watchers nil)
      rust
      markdown
      multiple-cursors
@@ -80,7 +81,19 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      (copilot :location (recipe
+                                                          :fetcher github
+                                                          :repo "copilot-emacs/copilot.el"
+                                                          :files ("*.el" "dist")))
+
+                                      (lsp-python-ms :location (recipe
+                                                                :fetcher github
+                                                                :repo "emacs-lsp/lsp-python-ms"
+                                                                :files ("*.el")))
+
+                                      (sqlite3))
+
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -585,6 +598,18 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (load-user-lisp "init.el")
+  (with-eval-after-load 'company
+    ;; disable inline previews
+    (delq 'company-preview-if-just-one-frontend company-frontends))
+
+  (with-eval-after-load 'copilot
+    (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
+    (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion-by-word))
+
+  (add-hook 'prog-mode-hook 'copilot-mode)
+  
 )
 
 
@@ -609,3 +634,4 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  )
 )
+
