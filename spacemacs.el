@@ -42,7 +42,9 @@ This function should only modify configuration layer settings."
      octave
      html
      yaml
-     (python :variables python-test-runner 'pytest)
+     (python :variables python-test-runner 'pytest
+                        python-formatter 'black
+                        python-backend 'lsp python-lsp-server 'pyright)
      python-lsp-server
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -55,7 +57,7 @@ This function should only modify configuration layer settings."
      git
      helm
      projectile
-     lsp
+     (lsp :variables lsp-use-lsp-ui 't)
      rust
      markdown
      multiple-cursors
