@@ -58,7 +58,8 @@ This function should only modify configuration layer settings."
      helm
      projectile
      (lsp :variables lsp-use-lsp-ui 't
-                     lsp-enable-file-watchers nil)
+                     lsp-enable-file-watchers nil
+                     lsp-rust-analyzer-linked-projects ["/home/hove/work/sonair/sonair/firmware/rust/common/signal_processing/Cargo.toml"])
      rust
      markdown
      multiple-cursors
