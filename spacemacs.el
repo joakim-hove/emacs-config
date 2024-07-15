@@ -604,13 +604,18 @@ before packages are loaded."
     (delq 'company-preview-if-just-one-frontend company-frontends))
 
   (with-eval-after-load 'copilot
+    (define-key copilot-completion-map (kbd "<return>") 'copilot-accept-completion)
+    (define-key copilot-completion-map (kbd "RETURN") 'copilot-accept-completion)
+
     (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
     (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
     (define-key copilot-completion-map (kbd "C-TAB") 'copilot-accept-completion-by-word)
     (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion-by-word))
 
   (add-hook 'prog-mode-hook 'copilot-mode)
-  
+
+   (with-eval-after-load 'lsp-rust
+    (require 'dap-cpptools))
 )
 
 
